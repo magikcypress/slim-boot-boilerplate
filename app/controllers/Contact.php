@@ -1,6 +1,5 @@
 <?php
 
-
 //////////////// Blog Contact ////////////////
 
 $app->get('/contact', function() use ($app) {

@@ -43,14 +43,36 @@ class __TwigTemplate_b85fe7d0680541fa5ec30868592ac125 extends Twig_Template
 \t\t\t\t<li><a href=\"/contact\">Contact</a></li>
 \t\t\t\t<li><a href=\"/about\">About</a></li>
 \t\t\t\t<li><a href=\"/\">View Website</a></li>
+\t\t\t\t<li><a href=\"/logout\">Logout</a></li>
 \t\t\t</ul>
 
 \t\t\t";
-        // line 25
-        $this->displayBlock('content', $context, $blocks);
         // line 26
+        $this->displayBlock('content', $context, $blocks);
+        // line 27
         echo "\t\t</div>
 
+\t\t";
+        // line 29
+        if (array_key_exists("GOOGLE_UA_ID", $context)) {
+            // line 30
+            echo "\t\t<script>
+\t\t\tvar _gaq = [['_setAccount', '";
+            // line 31
+            if (isset($context["GOOGLE_UA_ID"])) { $_GOOGLE_UA_ID_ = $context["GOOGLE_UA_ID"]; } else { $_GOOGLE_UA_ID_ = null; }
+            echo twig_escape_filter($this->env, $_GOOGLE_UA_ID_, "html", null, true);
+            echo "'], ['_trackPageview'], ['_trackPageLoadTime']];
+\t\t\t( function(d, t) {
+\t\t\t\t\tvar g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+\t\t\t\t\tg.async = 1;
+\t\t\t\t\tg.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+\t\t\t\t\ts.parentNode.insertBefore(g, s)
+\t\t\t\t}(document, 'script'));
+\t\t</script>
+\t\t";
+        }
+        // line 40
+        echo "
 \t</body>
 </html>";
     }
@@ -61,7 +83,7 @@ class __TwigTemplate_b85fe7d0680541fa5ec30868592ac125 extends Twig_Template
         echo " ";
     }
 
-    // line 25
+    // line 26
     public function block_content($context, array $blocks = array())
     {
         echo " ";
@@ -72,8 +94,13 @@ class __TwigTemplate_b85fe7d0680541fa5ec30868592ac125 extends Twig_Template
         return "layout.html";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  65 => 25,  59 => 4,  52 => 26,  50 => 25,  26 => 4,  21 => 1,  45 => 8,  43 => 7,  40 => 6,  37 => 5,  29 => 3,);
+        return array (  87 => 26,  81 => 4,  75 => 40,  62 => 31,  59 => 30,  57 => 29,  53 => 27,  51 => 26,  26 => 4,  21 => 1,);
     }
 }

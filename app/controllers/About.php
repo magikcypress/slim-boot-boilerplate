@@ -1,6 +1,5 @@
 <?php
 
-
 //////////////// Blog About ////////////////
 
 $app->get('/about', function() use ($app) {

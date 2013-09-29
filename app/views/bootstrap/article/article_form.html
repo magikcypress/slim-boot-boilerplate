@@ -30,6 +30,7 @@
 	</p>
 	
 	<p>
+		<input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token|raw }}">
 		<input type="submit" value="{{ action_name }} QCM" />
 	</p>
 </form>

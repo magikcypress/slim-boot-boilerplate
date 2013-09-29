@@ -1,5 +1,5 @@
 <?php
-
+session_start('slimblog');
 // Vendor Autoloader
 require_once (VENDOR_PATH . 'autoloader.php');
 \Vendors\Autoloader::setIncludePath(VENDOR_PATH);
@@ -7,9 +7,12 @@ require_once (VENDOR_PATH . 'autoloader.php');
 
 // Import Site configuration
 $site_cfg = parse_ini_file(APP_PATH . 'config/config.ini', TRUE);
+define('THEME', 'simple');
 
+// Import MiddleWare
 require_once (VENDOR_PATH . 'Slim/Middleware.php');
 require_once (VENDOR_PATH . 'Slim/Middleware/SlimBasicAuth.php');
+require_once (VENDOR_PATH . 'Slim/Middleware/CsrfGuard.php');
 
 // Paris and Idiorm
 require VENDOR_PATH . 'Paris/idiorm.php';
@@ -20,8 +23,6 @@ require 'models/Article.php';
 require 'models/Author.php';
 
 // Configuration
-// TwigView::$twigDirectory = __DIR__ . '/vendor/Twig/lib/Twig';
-
 ORM::configure('mysql:host=localhost;dbname=qcm');
 ORM::configure('username', 'root');
 ORM::configure('password', '');
@@ -38,7 +39,7 @@ if (is_writable(ROOT_PATH . 'cache')) {
 
 // Setup $app
 $app = new \Slim\Slim( array(
-	'templates.path' => APP_PATH . 'views/simple/', 
+	'templates.path' => APP_PATH . 'views/' . THEME . '/', 
 	'debug' => true, 
 	'view' => new \Slim\Extras\Views\Twig(), 
 	'cookies.secret_key' => md5($site_cfg['website']['secret']), 
@@ -52,6 +53,7 @@ $app = new \Slim\Slim( array(
 
 // Authenticate
 $app->add(new \SlimBasicAuth());
+$app->add(new \CsrfGuard());
 
 // Set our app name
 $app -> setName($site_cfg['website']['name']);

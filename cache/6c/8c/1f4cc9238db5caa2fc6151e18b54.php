@@ -87,8 +87,16 @@ class __TwigTemplate_6c8c1f4cc9238db5caa2fc6151e18b54 extends Twig_Template
 \t</p>
 \t
 \t<p>
-\t\t<input type=\"submit\" value=\"";
+\t\t<input type=\"hidden\" name=\"";
         // line 31
+        if (isset($context["csrf_key"])) { $_csrf_key_ = $context["csrf_key"]; } else { $_csrf_key_ = null; }
+        echo twig_escape_filter($this->env, $_csrf_key_, "html", null, true);
+        echo "\" value=\"";
+        if (isset($context["csrf_token"])) { $_csrf_token_ = $context["csrf_token"]; } else { $_csrf_token_ = null; }
+        echo $_csrf_token_;
+        echo "\">
+\t\t<input type=\"submit\" value=\"";
+        // line 32
         if (isset($context["action_name"])) { $_action_name_ = $context["action_name"]; } else { $_action_name_ = null; }
         echo twig_escape_filter($this->env, $_action_name_, "html", null, true);
         echo " Article\" />
@@ -140,6 +148,6 @@ tinymce.init({
 
     public function getDebugInfo()
     {
-        return array (  92 => 31,  84 => 27,  75 => 22,  68 => 17,  62 => 16,  48 => 13,  33 => 6,  25 => 2,  19 => 1,  65 => 25,  59 => 4,  52 => 14,  50 => 25,  26 => 4,  21 => 1,  45 => 8,  43 => 12,  40 => 6,  37 => 5,  29 => 3,);
+        return array (  100 => 32,  92 => 31,  84 => 27,  75 => 22,  68 => 17,  62 => 16,  52 => 14,  48 => 13,  43 => 12,  33 => 6,  25 => 2,  19 => 1,);
     }
 }

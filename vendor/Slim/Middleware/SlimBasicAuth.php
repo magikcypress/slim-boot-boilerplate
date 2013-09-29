@@ -23,7 +23,8 @@ class SlimBasicAuth extends \Slim\Middleware
      */   
     public function deny_access() {
         $res = $this->app->response();
-        $res->status(401);
+        //die();
+        if($res->status(401))
         $res->header('WWW-Authenticate', sprintf('Basic realm="%s"', $this->realm));
     }
 
@@ -66,15 +67,18 @@ class SlimBasicAuth extends \Slim\Middleware
      */
     public function call()
     {
-        $req = $this->app->request();
-        $res = $this->app->response();
-        $authUser = $req->headers('PHP_AUTH_USER');
-        $authPass = $req->headers('PHP_AUTH_PW');
+        // if (strpos($this->app->request()->getPathInfo(), '/admin') !== 0) {
+            $req = $this->app->request();
+            $res = $this->app->response();
+            $authUser = $req->headers('PHP_AUTH_USER');
+            $authPass = $req->headers('PHP_AUTH_PW');
 
-        if ($this->authenticate($authUser, $authPass)) {
-            $this->next->call();
-        } else {
-            $this->deny_access();
-        }
+            if ($this->authenticate($authUser, $authPass)) {
+                $this->next->call();
+            } else {
+                $this->deny_access();
+            }
+        // }
     }
+
 }
