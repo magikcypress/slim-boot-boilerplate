@@ -3,7 +3,7 @@
 Slim-Boilerplate is a bundling of the following components. It can be used as a starting point for small projects.
 
 * __Fork__: https://github.com/PastorBones/Slim-Boilerplate
-* __Model__: NotORM
+* __Model__: ([ORM idiorm & Paris](http://j4mie.github.io/idiormandparis/))
 * __View__: Twig 1.11.1 ([fabpot/Twig](https://github.com/fabpot/Twig))
 * __Controller__: Slim 2.0 ([codeguy/Slim](https://github.com/codeguy/Slim))
-* __Styling__: bootstrap-sass ([thomas-mcdonald/bootstrap-sass](https://github.com/thomas-mcdonald/bootstrap-sass))
+* __Styling__: bootstrap ([twbs/bootstrap](https://github.com/twbs/bootstrap))
