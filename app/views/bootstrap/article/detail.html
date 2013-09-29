@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+	<h1>{{ article.title }}</h1>
+	<p>Published: {{ article.timestamp|date('jS F Y') }} by {{ author.name }}</p>
+	<p>{{ article.content|raw }}</p>
+	<p><a href="/">Back to Homepage</a></p>
+{% endblock %}

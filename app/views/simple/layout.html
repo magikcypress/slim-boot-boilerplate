@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block page_title %} {% endblock %}</title>
+		<meta charset="utf8" />
+
+	    <meta name="author" content="@__cyp">
+	  
+	    <link rel="stylesheet" media="all" href="/simple/bootstrap.min.css"/>
+	    <link rel="stylesheet" media="all" href="/simple/bootstrap-responsive.min.css"/>
+	    <link rel="stylesheet" media="all" href="/simple/screen.css"/>
+
+	</head>
+	<body>
+		<div class="container">
+			<ul class="menu">
+				<li><a href="/admin/">Return Admin</a></li>
+				<li><a href="/admin/add">Add Article</a></li>
+				<li><a href="/admin/addauthor">Add Author</a></li>
+				<li><a href="/contact">Contact</a></li>
+				<li><a href="/about">About</a></li>
+				<li><a href="/">View Website</a></li>
+			</ul>
+
+			{% block content %} {% endblock %}
+		</div>
+
+	</body>
+</html>

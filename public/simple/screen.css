@@ -1,0 +1,8 @@
+.editable { width: 100%; line-height: 8em; }
+.editable.summary { line-height: 3em; }
+.center { text-align: center; }
+ul li { display: inline; }
+ul.menu li { background-color: #0088cc; padding: .5em }
+ul.menu li a { color: #fff; }
+th { text-align: left; width: 20% }
+.legend { text-align: right; margin-top: 1em; }

@@ -1,0 +1,21 @@
+<form action="{{ action_url }}" method="post">
+	
+	<p>
+		<label for="email">Email: </label>
+		<input type="text" name="email" value="" id="email" />
+	</p>
+
+	<p>
+		<label for="subject">Subject: </label>
+		<input type="text" name="subject" value="" id="subject" />
+	</p>
+	
+	<p>
+		<label for="message">Message: </label>
+		<textarea name="message" id="message" class="editable"></textarea>
+	</p>
+	
+	<p>
+		<input type="submit" value="{{ action_name }}" />
+	</p>
+</form>

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+					<h1>Authors</h1>
+					<ul>
+						{% for author in authors %}
+							{% if author.statut %}
+								<li><h2><a href="/admin/admin_view_author/{{ author.id }}">{{ author.nom }}</a></h2>
+								{{ author.email|raw }}</li>
+							{% endif %}
+						{% else %}	
+							<li>There are currently no authors.</li>
+						{% endfor %}	
+					</ul>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
