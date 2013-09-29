@@ -66,7 +66,7 @@ $twig->addGlobal('SITE_AUTHOR', $site_cfg['website']['author']);
 $twig->addGlobal('LICENCE', $site_cfg['website']['licence']);
 $twig->addGlobal('LICENCE_URL', $site_cfg['website']['licence_url']);
 
-if(isset($site_cfg['website']['ua_id'])) {
+if(isset($site_cfg['website']['ua_id']) && !empty($site_cfg['website']['ua_id'])) {
 	$twig->addGlobal('GOOGLE_UA_ID', $site_cfg['website']['ua_id']);
 }
 
