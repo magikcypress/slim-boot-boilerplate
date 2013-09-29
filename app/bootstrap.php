@@ -8,7 +8,6 @@ require_once (VENDOR_PATH . 'autoloader.php');
 
 // Import Site configuration
 $site_cfg = parse_ini_file(APP_PATH . 'config/config.ini', TRUE);
-define('THEME', 'bootstrap');
 
 // Import MiddleWare
 require_once (VENDOR_PATH . 'Slim/Middleware.php');
@@ -40,7 +39,7 @@ if (is_writable(ROOT_PATH . 'cache')) {
 
 // Setup $app
 $app = new \Slim\Slim( array(
-	'templates.path' => APP_PATH . 'views/' . THEME . '/', 
+	'templates.path' => APP_PATH . 'views/' . $site_cfg['website']['theme'] . '/', 
 	'debug' => true, 
 	'view' => new \Slim\Extras\Views\Twig(), 
 	'cookies.secret_key' => md5($site_cfg['website']['secret']), 
