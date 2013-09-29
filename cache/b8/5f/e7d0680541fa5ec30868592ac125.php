@@ -51,10 +51,10 @@ class __TwigTemplate_b85fe7d0680541fa5ec30868592ac125 extends Twig_Template
         $this->displayBlock('content', $context, $blocks);
         // line 27
         echo "\t\t</div>
-\t\t
+
 \t\t<div class=\"container\">
 \t\t\t\t<ul class=\"inline\">
-\t\t\t\t\t<li>&copy; 2013</li>
+\t\t\t\t\t<li>2013</li>
 \t\t\t\t\t<li>&minus;</li>
 \t\t\t\t\t<li><a href=\"\">";
         // line 33

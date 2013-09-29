@@ -8,13 +8,19 @@ class SlimBasicAuth extends \Slim\Middleware
     protected $realm;
 
     /**
+     * @var string
+     */
+    protected $route;
+
+    /**
      * Constructor
      *
      * @param   string  $realm      The HTTP Authentication realm
      */
-    public function __construct($realm = 'Protected Area')
+    public function __construct($realm = 'Protected Area', $route = '')
     {
         $this->realm = $realm;
+        $this->route = $route;
     }
 
     /**
@@ -23,7 +29,6 @@ class SlimBasicAuth extends \Slim\Middleware
      */   
     public function deny_access() {
         $res = $this->app->response();
-        //die();
         if($res->status(401))
         $res->header('WWW-Authenticate', sprintf('Basic realm="%s"', $this->realm));
     }
@@ -67,7 +72,7 @@ class SlimBasicAuth extends \Slim\Middleware
      */
     public function call()
     {
-        // if (strpos($this->app->request()->getPathInfo(), '/admin') !== 0) {
+        if(strpos($this->app->request()->getPathInfo(), $this->route) !== false) {
             $req = $this->app->request();
             $res = $this->app->response();
             $authUser = $req->headers('PHP_AUTH_USER');
@@ -78,7 +83,8 @@ class SlimBasicAuth extends \Slim\Middleware
             } else {
                 $this->deny_access();
             }
-        // }
+        } else
+            $this->next->call();
     }
 
 }

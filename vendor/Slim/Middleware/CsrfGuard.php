@@ -81,11 +81,5 @@ class CsrfGuard extends \Slim\Middleware
             'csrf_key'      => $this->key,
             'csrf_token'    => $token,
         ));
-
-        $t = $this->app->view()->appendData(array(
-            'csrf_key'      => $this->key,
-            'csrf_token'    => $token,
-        ));
-
     }
 }

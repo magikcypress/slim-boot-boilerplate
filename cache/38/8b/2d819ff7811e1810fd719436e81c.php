@@ -37,8 +37,16 @@ class __TwigTemplate_388b2d819ff7811e1810fd719436e81c extends Twig_Template
 \t</p>
 \t
 \t<p>
-\t\t<input type=\"submit\" value=\"";
+\t\t<input type=\"hidden\" name=\"";
         // line 19
+        if (isset($context["csrf_key"])) { $_csrf_key_ = $context["csrf_key"]; } else { $_csrf_key_ = null; }
+        echo twig_escape_filter($this->env, $_csrf_key_, "html", null, true);
+        echo "\" value=\"";
+        if (isset($context["csrf_token"])) { $_csrf_token_ = $context["csrf_token"]; } else { $_csrf_token_ = null; }
+        echo $_csrf_token_;
+        echo "\">
+\t\t<input type=\"submit\" value=\"";
+        // line 20
         if (isset($context["action_name"])) { $_action_name_ = $context["action_name"]; } else { $_action_name_ = null; }
         echo twig_escape_filter($this->env, $_action_name_, "html", null, true);
         echo "\" />
@@ -59,6 +67,6 @@ class __TwigTemplate_388b2d819ff7811e1810fd719436e81c extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  42 => 19,  19 => 1,  40 => 6,  35 => 5,  29 => 3,);
+        return array (  50 => 20,  42 => 19,  19 => 1,);
     }
 }

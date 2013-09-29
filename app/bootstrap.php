@@ -52,7 +52,7 @@ $app = new \Slim\Slim( array(
 ));
 
 // Authenticate
-$app->add(new \SlimBasicAuth());
+$app->add(new \SlimBasicAuth('','admin'));
 $app->add(new \CsrfGuard());
 
 // Set our app name
