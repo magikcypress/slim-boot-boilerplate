@@ -38,7 +38,7 @@ class __TwigTemplate_39a79480ca0569c4854ee8170e7d7e37 extends Twig_Template
 
 \t<section id=\"qcm\">
 
-\t\t<h1>My QCM Administration</h1>
+\t\t<h1>My Blog Administration</h1>
 
 \t\t<ul class=\"menu\">
 \t\t\t<li><a href=\"/admin/add\">Add Article</a></li>

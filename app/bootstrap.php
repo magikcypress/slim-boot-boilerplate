@@ -1,5 +1,6 @@
 <?php
 session_start('slimblog');
+
 // Vendor Autoloader
 require_once (VENDOR_PATH . 'autoloader.php');
 \Vendors\Autoloader::setIncludePath(VENDOR_PATH);
@@ -7,7 +8,7 @@ require_once (VENDOR_PATH . 'autoloader.php');
 
 // Import Site configuration
 $site_cfg = parse_ini_file(APP_PATH . 'config/config.ini', TRUE);
-define('THEME', 'simple');
+define('THEME', 'bootstrap');
 
 // Import MiddleWare
 require_once (VENDOR_PATH . 'Slim/Middleware.php');
@@ -63,6 +64,9 @@ $twig = $app->view()->getEnvironment();
 $twig->addGlobal('SITE_NAME', $site_cfg['website']['name']);
 $twig->addGlobal('SITE_VER', $site_cfg['website']['version']);
 $twig->addGlobal('SITE_AUTHOR', $site_cfg['website']['author']);
+$twig->addGlobal('LICENCE', $site_cfg['website']['licence']);
+$twig->addGlobal('LICENCE_URL', $site_cfg['website']['licence_url']);
+
 if(isset($site_cfg['website']['ua_id'])) {
 	$twig->addGlobal('GOOGLE_UA_ID', $site_cfg['website']['ua_id']);
 }

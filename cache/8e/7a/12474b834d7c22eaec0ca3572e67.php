@@ -19,7 +19,7 @@ class __TwigTemplate_8e7a12474b834d7c22eaec0ca3572e67 extends Twig_Template
         echo "<div id=\"copyright\" class=\"row\">
 \t<div class=\"container\">
 \t\t<ul class=\"inline\">
-\t\t\t<li>&copy; 2012</li>
+\t\t\t<li>&copy; 2013</li>
 \t\t\t<li>&minus;</li>
 \t\t\t<li><a href=\"\">";
         // line 6
@@ -27,7 +27,14 @@ class __TwigTemplate_8e7a12474b834d7c22eaec0ca3572e67 extends Twig_Template
         echo twig_escape_filter($this->env, $_SITE_NAME_, "html", null, true);
         echo "</a></li>
 \t\t\t<li>&minus;</li>
-\t\t\t<li>All Rights Reserved</li>
+\t\t\t<li><a href=\"";
+        // line 8
+        if (isset($context["LICENCE_URL"])) { $_LICENCE_URL_ = $context["LICENCE_URL"]; } else { $_LICENCE_URL_ = null; }
+        echo twig_escape_filter($this->env, $_LICENCE_URL_, "html", null, true);
+        echo "\">";
+        if (isset($context["LICENCE"])) { $_LICENCE_ = $context["LICENCE"]; } else { $_LICENCE_ = null; }
+        echo twig_escape_filter($this->env, $_LICENCE_, "html", null, true);
+        echo "</a></li>
 \t\t</ul>
 \t</div>
 </div>";
@@ -45,6 +52,6 @@ class __TwigTemplate_8e7a12474b834d7c22eaec0ca3572e67 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  26 => 6,  28 => 8,  19 => 1,  102 => 22,  90 => 11,  83 => 8,  78 => 7,  73 => 6,  70 => 5,  67 => 4,  50 => 26,  45 => 23,  43 => 22,  36 => 18,  27 => 4,  22 => 1,  89 => 21,  77 => 18,  71 => 16,  59 => 15,  55 => 14,  49 => 13,  42 => 8,  39 => 7,  32 => 4,  29 => 13,);
+        return array (  32 => 8,  26 => 6,  19 => 1,  245 => 111,  241 => 109,  228 => 98,  218 => 95,  213 => 94,  208 => 93,  204 => 91,  200 => 89,  196 => 87,  193 => 86,  187 => 84,  182 => 83,  177 => 82,  174 => 81,  169 => 80,  156 => 69,  153 => 68,  141 => 58,  137 => 56,  124 => 45,  114 => 42,  109 => 41,  104 => 40,  100 => 38,  96 => 36,  92 => 34,  89 => 33,  83 => 31,  78 => 30,  73 => 29,  70 => 28,  65 => 27,  52 => 16,  49 => 15,  35 => 5,  29 => 3,);
     }
 }
