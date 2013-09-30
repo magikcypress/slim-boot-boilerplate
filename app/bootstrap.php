@@ -23,6 +23,7 @@ require 'models/Article.php';
 require 'models/Author.php';
 
 // Configuration
+// ORM::configure('sqlite:' . ROOT_PATH . '/sql/database.db');
 ORM::configure('mysql:host=localhost;dbname=qcm');
 ORM::configure('username', 'root');
 ORM::configure('password', '');

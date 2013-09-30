@@ -72,6 +72,8 @@ $app->get('/admin/add', $authCheck, function() use ($app) {
 // Admin Add - POST.
 $app->post('/admin/add', $authCheck, function() use ($app) {
 	$article 			= Model::factory('Article')->create();
+	// $article->id 		= 1; Because sqlite
+	// $article->publish	= 1; Because sqlite
 	$article->title 	= $app->request()->post('title');
 	$article->author_id	= $app->request()->post('author');
 	$article->summary 	= $app->request()->post('summary');

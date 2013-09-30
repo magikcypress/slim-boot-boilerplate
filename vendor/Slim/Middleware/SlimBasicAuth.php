@@ -50,11 +50,19 @@ class SlimBasicAuth extends \Slim\Middleware
 
             //Uses Idiorm
             $user = \ORM::for_table('author')
-            ->select('id')
-            ->where('login', $username)
-            ->where('pass', $password)
-            ->where('statut', 1)
-            ->find_one();
+                ->select('id')
+                ->where('login', $username)
+                ->where('pass', $password)
+                ->where('statut', 1)
+                ->find_one();
+
+            //Uses Paris
+            // $user = Model::factory('Author')
+            //         ->select('id')
+            //         ->where('login', $username)
+            //         ->where('pass', $password)
+            //         ->where('statut', 1)
+            //         ->find_one();
 
             return $user;
 

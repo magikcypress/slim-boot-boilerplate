@@ -119,6 +119,7 @@ tinymce.init({
                                         common/format,
                                         common/list,
                                         common/link,
+                                        common/image,
                                         common/highlighteditables\">
 </script>
 
@@ -127,10 +128,12 @@ tinymce.init({
 
 <!-- make all elements with class=\"editable\" editable with Aloha Editor -->
 <script type=\"text/javascript\">
-     Aloha.ready( function() {
+    Aloha.ready( function() {
             var \$ = Aloha.jQuery;
             \$('.editable').aloha();
-     });
+
+    });
+
 </script>
 
 ";
