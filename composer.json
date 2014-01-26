@@ -21,7 +21,6 @@
         "bin/version-check"
     ],
     "require": {
-        "magikcypress/slim-boot-boilerplate": "1.1",
         "php": ">=5.3.7",
         "slim/slim": "2.*",
         "j4mie/idiorm": "1.4.*",
