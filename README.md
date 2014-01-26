@@ -1,10 +1,14 @@
-# Slim-boilerplate
+# Slim-boot-boilerplate
 
 Slim-boilerplate is a bundling of the following components. It can be used as a starting point for small projects.
 
 ## Installation
 
-Install composer in your project:
+Check database connection with ORM::configure in app/bootstrap.php 
+
+Import all vendor for this app
+
+Install official vendor with composer in your project:
 
 ```
 git clone https://github.com/magikcypress/slim-boot-boilerplate.git
