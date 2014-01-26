@@ -1,32 +1,15 @@
-# Slim-Boilerplate
+# Slim-boilerplate
 
-Slim-Boilerplate is a bundling of the following components. It can be used as a starting point for small projects.
+Slim-boilerplate is a bundling of the following components. It can be used as a starting point for small projects.
 
 ## Installation
 
 Install composer in your project:
 
 ```
+git clone https://github.com/magikcypress/slim-boot-boilerplate.git
 curl -s https://getcomposer.org/installer | php
 ```
-
-Create a composer.json file in your project root:
-
-```
-{
-    "require": {
-        "php": ">=5.3.7",
-    },
-    "require-dev": {
-        "slim/slim": "2.*",
-        "j4mie/idiorm": "1.4.*",
-        "fabpot/Twig": "1.15.*",
-        "twbs/bootstrap": "3.0.*",
-    },
-}
-```
-
-(*Please check Packagist for the [most recent version of Slim Auth][6]*)
 
 Install via composer:
 
