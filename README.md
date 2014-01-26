@@ -41,6 +41,7 @@ Add this line to your application’s index.php file:
 require 'vendor/autoload.php';
 ```
 
+
 * __Fork__: https://github.com/PastorBones/Slim-Boilerplate
 * __Model__: ORM ([idiorm & Paris](http://j4mie.github.io/idiormandparis/))
 * __View__: Twig 1.11.1 ([fabpot/Twig](https://github.com/fabpot/Twig))
