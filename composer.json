@@ -1,10 +1,10 @@
 {
-    "name": "magikcypress/slim-boot-Boilerplate",
+    "name": "magikcypress/slim-boot-boilerplate",
     "description": "Slim-Boilerplate is a bundling of the following components. It can be used as a starting point for small projects.",
-    "homepage": "https://github.com/magikcypress/slim-boot-Boilerplate",
+    "homepage": "https://github.com/magikcypress/slim-boot-boilerplate",
     "support": {
-        "issues": "https://github.com/magikcypress/slim-boot-Boilerplate/issues",
-        "source": "https://github.com/magikcypress/slim-boot-Boilerplate"
+        "issues": "https://github.com/magikcypress/slim-boot-boilerplate/issues",
+        "source": "https://github.com/magikcypress/slim-boot-boilerplate"
     },
     "license": "MIT",
     "authors": [
