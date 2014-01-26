@@ -8,6 +8,7 @@ Install composer in your project:
 
 ```
 git clone https://github.com/magikcypress/slim-boot-boilerplate.git
+cd slim-boot-boilerplate
 curl -s https://getcomposer.org/installer | php
 ```
 
