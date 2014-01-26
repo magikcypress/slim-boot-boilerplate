@@ -1,0 +1,33 @@
+{
+    "name": "magikcypress/slim-boot-Boilerplate",
+    "description": "Slim-Boilerplate is a bundling of the following components. It can be used as a starting point for small projects.",
+    "homepage": "https://github.com/magikcypress/slim-boot-Boilerplate",
+    "support": {
+        "issues": "https://github.com/magikcypress/slim-boot-Boilerplate/issues",
+        "source": "https://github.com/magikcypress/slim-boot-Boilerplate"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vincent Legeard",
+            "homepage": "http://rouquin.me",
+            "role": "Developer"
+        }
+    ],
+    "keywords": [
+        "CMS"
+    ],
+    "bin": [
+        "bin/version-check"
+    ],
+    "require": {
+        "magikcypress/slim-boot-Boilerplate": "1.1",
+        "php": ">=5.3.7",
+        "slim/slim": "2.*",
+        "j4mie/idiorm": "1.4.*",
+        "twig/twig": "1.15.*",
+        "twbs/bootstrap": "3.0.*"
+    },
+    "autoload": {
+    }
+}
