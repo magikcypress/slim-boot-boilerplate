@@ -6,7 +6,7 @@ Slim-boilerplate is a bundling of the following components. It can be used as a 
 
 Check database connection with ORM::configure in app/bootstrap.php 
 
-Import all vendor for this app
+All vendor imported for this app
 
 Install official vendor with composer in your project:
 
