@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}{{ author.nom }}{% endblock %}
+
+{% block content %}
+	<h1>{{ author.nom }} <small>{{ author.email|raw }}</small></h1>
+	<ul>
+		{% if author.statut %}
+				{% for article in articles %}
+					<li>
+						<h2>{{ article.title }}</h2>
+						<span>Published: {{ article.timestamp|date('jS F Y') }}<span>
+					</li>
+				{% endfor %}
+		{% else %}	
+			<li>There are currently no author.</li>
+		{% endif %}	
+	</ul>
+{% endblock %}

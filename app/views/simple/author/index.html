@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}My Blog{% endblock %}
+
+{% block content %}	
+	{% for author in authors %}
+		{% if author.statut %}
+			<h1><a href="/admin/viewauthor/{{ author.id }}">{{ author.nom }}</a> <small>{{ author.email }}</small></h1>
+		{% endif %}
+	{% else %}	
+		<p>There are currently no authors.</p>
+	{% endfor %}
+{% endblock %}

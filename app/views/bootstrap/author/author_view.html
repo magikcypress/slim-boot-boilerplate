@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+					<h1>Authors view</h1>
+					<ul>
+						{% if author.statut %}
+							<li><h2>{{ author.nom }} <small>{{ author.email|raw }}</small></span></h2>
+							<hr />
+							<h2>Articles</h2>
+							<ul class="hero-unit">
+								{% for article in articles %}
+									<li>
+										<h3>{{ article.title }}</h3>
+										<span>Published: {{ article.timestamp|date('jS F Y') }}<span>
+									</li>
+								{% endfor %}
+							</ul>
+								</li>
+						{% else %}	
+							<li>There are currently no author.</li>
+						{% endif %}	
+					</ul>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
