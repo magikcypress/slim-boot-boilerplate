@@ -5,8 +5,8 @@
 {% block content %}	
 	{% for article in articles %}
 		{% if article.publish %}
-			<h1><a href="/view/{{ article.id }}">{{ article.title }}</a> by {{ author.nom }}</h1>
-			<p>{{ article.summary|raw }}</p>
+			<h1><a href="/view/{{ article.id }}">{{ article.title }}</a> by <strong>{{ article.author }}</strong></h1>
+			{{ article.summary|raw }}
 		{% endif %}
 	{% else %}	
 		<p>There are currently no articles.</p>

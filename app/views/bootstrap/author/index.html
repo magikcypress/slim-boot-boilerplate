@@ -12,8 +12,8 @@
 					<ul>
 						{% for author in authors %}
 							{% if author.statut %}
-								<li><h2><a href="/admin/admin_view_author/{{ author.id }}">{{ author.nom }}</a></h2>
-								{{ author.email|raw }}</li>
+								<li><h2><a href="/admin/viewauthor/{{ author.id }}">{{ author.nom }}</a>
+								<small>{{ author.email|raw }}</small></h2><hr /></li>
 							{% endif %}
 						{% else %}	
 							<li>There are currently no authors.</li>

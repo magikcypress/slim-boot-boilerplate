@@ -22,6 +22,9 @@ Install via composer:
 php composer.phar install
 ```
 
+## Admin Access
+
+superman:superman
 
 * __Fork__: https://github.com/PastorBones/Slim-Boilerplate
 * __Model__: ORM ([idiorm & Paris](http://j4mie.github.io/idiormandparis/))

@@ -19,43 +19,60 @@ $authCheck = function() use ($app) {
 
 // Blog Homepage.
 $app->get('/', function() use ($app) {
-	$articles = Model::factory('Article')
+	$art = Model::factory('Article')
 					->order_by_desc('timestamp')
 					->find_many();
-					
+
+	$articles = array();
+	foreach ($art as $article) {
+		# get author by article
+		$authors = $article->author()->find_one();
+
+		$article = array('id' => $article->id,
+					    'publish' => $article->publish,
+						'title' => $article->title,
+						'summary' => $article->summary,
+						'timestamp' => $article->timestamp,
+						'content' => $article->content,
+						'author' => $authors->nom);
+		array_push($articles, $article);
+	}
+
 	return $app->render('article/index.html', array('articles' => $articles));		
 });
 
 // Blog View.
 $app->get('/view/(:id)', function($id) use ($app) {
 	$article = Model::factory('Article')->find_one($id);
+	$author = $article->author()->find_one();
 	if (! $article instanceof Article) {
 		$app->notFound();
 	}
 	
-	return $app->render('article/detail.html', array('article' => $article));
+	return $app->render('article/detail.html', array('article' => $article, 'author' => $author));
 });
 
 // Admin Home.
 $app->get('/admin/', $authCheck, function() use ($app) {
 	// Display articles
-	$articles = Model::factory('Article')
+	$art = Model::factory('Article')
 					->order_by_desc('timestamp')
 					->find_many();
 
-	// Display user for this article
-	// $posts = Model::factory('Author')->find_one('author_id');
-	// $user = $posts->profile()->find_one();
+	$articles = array();
+	foreach ($art as $article) {
+		# get author by article
+		$authors = $article->author()->find_one();
 
-	// Select a particular user from the database
-	// $user = Model::factory('Author')->find_one('author_id');
-	// Find the posts associated with the user
-	//$posts = $user->article()->find_many();
-
-	// // Select a particular post from the database
-	// $post = Model::factory('Article')->find_one('author_id');
-	// // Find the user associated with the post
-	// $user = $post->author()->find_one();
+		$article = array('id' => $article->id,
+					    'publish' => $article->publish,
+						'title' => $article->title,
+						'summary' => $article->summary,
+						'timestamp' => $article->timestamp,
+						'content' => $article->content,
+						'author' => $authors->nom);
+		array_push($articles, $article);
+	}
 
 	// Display authors
 	$authors = Model::factory('Author')->find_many();
@@ -91,10 +108,7 @@ $app->get('/admin/edit/(:id)', $authCheck, function($id) use ($app) {
 	
 	if (! $article instanceof Article) {
 		$app->notFound();
-	}	
-	// if (! $authors instanceof Author) {
-	// 	$app->notFound();
-	// }	
+	}		
 	
 	return $app->render('article/admin_input.html', array(
 		'action_name' 	=> 	'Edit', 

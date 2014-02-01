@@ -23,10 +23,11 @@ require 'models/Article.php';
 require 'models/Author.php';
 
 // Configuration
-// ORM::configure('sqlite:' . ROOT_PATH . '/sql/database.db');
-ORM::configure('mysql:host=localhost;dbname=qcm');
+# ORM::configure('sqlite:' . ROOT_PATH . '/sql/database.db');
+ORM::configure('mysql:host=localhost;dbname=blog');
 ORM::configure('username', 'root');
 ORM::configure('password', '');
+#ORM::logging(true);
 
 // Slim Configuration
 \Slim\Slim::registerAutoloader();
@@ -44,7 +45,9 @@ $app = new \Slim\Slim( array(
 	'debug' => true, 
 	'view' => new \Slim\Extras\Views\Twig(), 
 	'cookies.secret_key' => md5($site_cfg['website']['secret']), 
-	'log.enabled' => false, 
+	'log.enabled' => false,
+	// After instantiation
+	'cookies.domain' => 'slimblog', 
 	'log.writer' => new \Slim\Extras\Log\DateTimeFileWriter( array(
 		'path' => ROOT_PATH . 'logs', 
 		'name_format' => 'Y-m-d', 

@@ -11,8 +11,8 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Title</th>
-					<th>Author</th>
+					<th style="width: 50%">Title</th>
+					<th style="width: 20%">Author</th>
 					<th>Date</th>
 					<th></th>
 					<th colspan="3">Actions</th>
@@ -22,7 +22,7 @@
 				{% for article in articles %}
 					<tr>
 						<td>{{ article.title }}</td>
-						<td>{{ author.nom }}</td>
+						<td>{{ article.author }}</td>
 						<td>{{ article.timestamp|date('jS F Y') }}</td>
 						<td class="center">
 							{% if article.publish %}
@@ -61,8 +61,8 @@
 			<table>
 				<thead>
 					<tr>
-						<th>Nom</th>
-						<th>Email</th>
+						<th style="width: 50%">Nom</th>
+						<th style="width: 20%">Email</th>
 						<th>Login</th>
 						<th></th>
 						<th colspan="3">Actions</th>
