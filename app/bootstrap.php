@@ -86,4 +86,9 @@ if ($cdh = opendir(APP_PATH . 'controllers')) {
     closedir($cdh);
 }
 
+// Get page 404
+$app->notFound(function () use ($app) {
+    $app->render('404.html');
+});
+
 $app -> run();

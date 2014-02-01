@@ -104,7 +104,7 @@ $app->get('/admin/viewauthor/(:id)', $authCheck, function($id) use ($app) {
 	$author = Model::factory('Author')->find_one($id);
 	$articles = $author->article()->find_many();
 	if ($author instanceof Author) {
-		// $app->notFound();
+		$app->notFound();
 	}
 					
 	return $app->render('author/author_view.html', array('author' => $author, 'articles' => $articles));
