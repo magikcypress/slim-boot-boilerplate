@@ -103,7 +103,7 @@ $app->get('/admin/authordelete/(:id)', $authCheck, function($id) use ($app) {
 $app->get('/admin/viewauthor/(:id)', $authCheck, function($id) use ($app) {
 	$author = Model::factory('Author')->find_one($id);
 	$articles = $author->article()->find_many();
-	if ($author instanceof Author) {
+	if (!$author instanceof Author) {
 		$app->notFound();
 	}
 					

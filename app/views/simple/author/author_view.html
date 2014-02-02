@@ -3,17 +3,21 @@
 {% block page_title %}{{ author.nom }}{% endblock %}
 
 {% block content %}
+{% if author.statut %}
 	<h1>{{ author.nom }} <small>{{ author.email|raw }}</small></h1>
 	<ul>
-		{% if author.statut %}
-				{% for article in articles %}
-					<li>
-						<h2>{{ article.title }}</h2>
-						<span>Published: {{ article.timestamp|date('jS F Y') }}<span>
-					</li>
-				{% endfor %}
+		{% if articles %}
+			{% for article in articles %}
+				<li>
+					<h2>{{ article.title }}</h2>
+					<span>Published: {{ article.timestamp|date('jS F Y') }}<span>
+				</li>
+			{% endfor %}
 		{% else %}	
-			<li>There are currently no author.</li>
+			<li>There are currently no article.</li>
 		{% endif %}	
 	</ul>
+{% else %}	
+	<p>There are currently no author.</p>
+{% endif %}	
 {% endblock %}

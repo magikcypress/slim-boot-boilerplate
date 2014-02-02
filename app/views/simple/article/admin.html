@@ -71,7 +71,7 @@
 				<tbody>
 					{% for author in authors %}
 						<tr>
-							<td>{{ author.nom }}</td>
+							<td><a href="/admin/viewauthor/{{ author.id }}">{{ author.nom }}</a></td>
 							<td>{{ author.email }}</td>
 							<td>{{ author.login }}</td>
 							<td class="center">

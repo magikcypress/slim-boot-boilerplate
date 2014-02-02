@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `article` (
 --
 
 INSERT INTO `article` (`id`, `timestamp`, `title`, `summary`, `content`, `publish`, `author_id`) VALUES
-(1, '2013-09-29 01:42:29', 'fullcalendar', '<p><span style="font-family: Arial, ''Liberation Sans'', ''DejaVu Sans'', sans-serif; font-size: 14px; line-height: 18px;">Using jquery mobile+phonegap, trying to <strong>POST</strong> to a Slim application, I have this code:</span></p>', '<p><span style="font-family: Arial, ''Liberation Sans'', ''DejaVu Sans'', sans-serif; font-size: 14px; line-height: 18px;">Using jquery <b>mobile+phonegap</b>, trying to POST to a Slim application, I have this code:</span></p>', 1, 1)
+(1, '2013-09-29 01:42:29', 'fullcalendar', '<p><span style="font-family: Arial, ''Liberation Sans'', ''DejaVu Sans'', sans-serif; font-size: 14px; line-height: 18px;">Using jquery mobile+phonegap, trying to <strong>POST</strong> to a Slim application, I have this code:</span></p>', '<p><span style="font-family: Arial, ''Liberation Sans'', ''DejaVu Sans'', sans-serif; font-size: 14px; line-height: 18px;">Using jquery <b>mobile+phonegap</b>, trying to POST to a Slim application, I have this code:</span></p>', 1, 1);
 -- --------------------------------------------------------
 
 --

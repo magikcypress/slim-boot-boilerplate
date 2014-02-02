@@ -15,12 +15,16 @@
 							<hr />
 							<h2>Articles</h2>
 							<ul class="hero-unit">
-								{% for article in articles %}
-									<li>
-										<h3>{{ article.title }}</h3>
-										<span>Published: {{ article.timestamp|date('jS F Y') }}<span>
-									</li>
-								{% endfor %}
+								{% if articles %}
+									{% for article in articles %}
+										<li>
+											<h3>{{ article.title }}</h3>
+											<span>Published: {{ article.timestamp|date('jS F Y') }}<span>
+										</li>
+									{% endfor %}
+								{% else %}	
+									<li>There are currently no article.</li>
+								{% endif %}			
 							</ul>
 								</li>
 						{% else %}	
