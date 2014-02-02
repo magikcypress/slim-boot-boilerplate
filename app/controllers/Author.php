@@ -78,10 +78,10 @@ $app->post('/admin/authoredit/(:id)', $authCheck, function($id) use ($app) {
 		// $author->htpass		= crypt($app->request()->post('statut'));
 		$author->save();
 	} catch (Exception $e) {
-    	$app->flash('err', 'Contact not edited! :: ' . $e->getMessage());
+    	$app->flash('err', 'Author not edited! :: ' . $e->getMessage());
 	}
 
-	$app->flash('ok', 'Contact edited!');
+	$app->flash('ok', 'Author edited!');
 	$app->redirect('/admin');
 });
 
@@ -92,12 +92,17 @@ $app->get('/admin/authorpublish/(:id)', $authCheck, function($id) use ($app) {
 
 	if (! $author instanceof Author) {
 		$app->notFound();
-		$app->flash('err', 'Contact not published!');
+		$app->flash('err', 'Author not published!');
 	}	
 	
-	$app->flash('ok', 'Contact published!');
 	$author->statut = $author->statut == 1 ? 0 : 1;
 	$author->save();
+
+	if($author->statut) {
+		$app->flash('ok', 'Author public!');
+	} else {
+		$app->flash('ok', 'Author private!');
+	} 
 
 	$app->redirect('/admin');
 });

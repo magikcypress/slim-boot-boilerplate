@@ -38,8 +38,9 @@ ORM::configure('password', '');
 if (is_writable(ROOT_PATH . 'cache')) {
 	\Slim\Extras\Views\Twig::$twigOptions['cache'] = ROOT_PATH . 'cache';
 }
+// Twig i18n config
 \Slim\Extras\Views\Twig::$twigExtensions =  array(
-        'Twig_Extensions_Extension_I18n' // Added i18n //
+        'Twig_Extensions_Extension_I18n'
 );
 
 // Setup $app
@@ -55,7 +56,7 @@ $app = new \Slim\Slim( array(
 	// 'cookies.lifetime' => '40 minutes',
 	// 'cookies.path' => '/',
 	'log.enabled' => false, 
-	'log.writer' => new \Slim\Extras\Log\DateTimeFileWriter( array(
+	'log.writer' => new \Slim\Extras\Log\DateTimeFileWriter(array(
 		'path' => ROOT_PATH . 'logs', 
 		'name_format' => 'Y-m-d', 
 		'message_format' => '%label% - %date% - %message%'
