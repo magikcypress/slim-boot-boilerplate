@@ -4,7 +4,7 @@
 
 {% block content %}
 	<h1>{{ article.title }}</h1>
-	<p>Published: {{ article.timestamp|date('jS F Y') }} by <strong>{{ author.nom }}</strong></p>
+	<p>Published: {{ article.timestamp|date('jS F Y') }} {% trans %}by{% endtrans %} <strong>{{ author.nom }}</strong></p>
 	<p>{{ article.content|raw }}</p>
-	<p><a href="/">Back to Homepage</a></p>
+	<p><a href="/">{% trans %}Back to Homepage{% endtrans %}</a></p>
 {% endblock %}

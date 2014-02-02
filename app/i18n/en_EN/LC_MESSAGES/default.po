@@ -12,52 +12,52 @@ msgstr ""
 
 #, php-format
 msgid "My Blog Administration"
-msgstr "Administration de mon blog"
+msgstr "My Blog Administration"
 
 msgid "My Authors Administration"
-msgstr "Administration des auteurs"
+msgstr "My Authors Administration"
 
 msgid "Return Admin"
-msgstr "Retour Admin"
+msgstr "Return Admin"
 
 msgid "Add Article"
-msgstr "Ajout d'un article"
+msgstr "Add Article"
 
 msgid "Add Author"
-msgstr "Ajour d'un author"
+msgstr "Add Author"
 
 msgid "View Website"
-msgstr "Site public"
+msgstr "View Website"
 
 msgid "Logout"
-msgstr "Deconnexion"
+msgstr "Logout"
 
 msgid "Send"
-msgstr "Envoyer"
+msgstr "Send"
 
 msgid "Contact"
 msgstr "Contact"
 
 msgid "Name:"
-msgstr "Nom:"
+msgstr "Name:"
 
 msgid "Email:"
-msgstr "Courriel:"
+msgstr "Email:"
 
 msgid "Login:"
 msgstr "Login:"
 
 msgid "Password:"
-msgstr "Mot de passe:"
+msgstr "Password:"
 
 msgid "Subject:"
-msgstr "Sujet:"
+msgstr "Subject:"
 
 msgid "Message:"
 msgstr "Message:"
 
 msgid "About"
-msgstr "A propos"
+msgstr "About"
 
 msgid "About Text"
 msgstr "About Text"
@@ -69,40 +69,40 @@ msgid "404 Text"
 msgstr "404 Text"
 
 msgid "by"
-msgstr "par"
+msgstr "by"
 
 msgid "Legend"
 msgstr "Legend"
 
 msgid "Legend private"
-msgstr "Legend privé"
+msgstr "Legend private"
 
 msgid "Legend public"
 msgstr "Legend public"
 
 msgid "Edit"
-msgstr "Editer"
+msgstr "Edit"
 
 msgid "Delete"
-msgstr "Supprimer"
+msgstr "Delete"
 
 msgid "Publish"
-msgstr "Publier"
+msgstr "Publish"
 
 msgid "Back to Homepage"
-msgstr "Retour à la page d'accueil"
+msgstr "Back to Homepage"
 
 msgid "Title"
-msgstr "Titre"
+msgstr "Title"
 
 msgid "Date"
 msgstr "Date"
 
 msgid "Summary:"
-msgstr "Sommaire:"
+msgstr "Summary:"
 
 msgid "Content:"
-msgstr "Contenu:"
+msgstr "Content:"
 
 msgid "Actions"
 msgstr "Actions"
@@ -120,58 +120,58 @@ msgid "Article public!"
 msgstr "Article public!"
 
 msgid "Article private!"
-msgstr "Article privé!"
+msgstr "Article private!"
 
 msgid "Article added!"
-msgstr "Article ajouté!"
+msgstr "Article added!"
 
 msgid "Article edited!"
-msgstr "Article edité!"
+msgstr "Article edited!"
 
 msgid "Article deleted!"
-msgstr "Article supprimé!"
+msgstr "Article deleted!"
 
 msgid "Article not added!"
-msgstr "Article en erreur!"
+msgstr "Article not added!"
 
 msgid "Article not edited!"
-msgstr "Article non edité!"
+msgstr "Article not edited!"
 
 msgid "Article not deleted!"
-msgstr "Article non supprimé!"
+msgstr "Article not deleted!"
 
 msgid "Article not Published!"
-msgstr "Article non publié!"
+msgstr "Article not published!"
 
 msgid "Author"
-msgstr "Auteur"
+msgstr "Author"
 
 msgid "author"
-msgstr "auteur"
+msgstr "author"
 
 msgid "Author public!"
-msgstr "Auteur public!"
+msgstr "Author public!"
 
 msgid "Author private!"
-msgstr "Auteurr privé!"
+msgstr "Author private!"
 
 msgid "Author added!"
-msgstr "Auteur ajouté!"
+msgstr "Author added!"
 
 msgid "Author edited!"
-msgstr "Auteur edité!"
+msgstr "Author edited!"
 
 msgid "Author deleted!"
-msgstr "Auteur supprimé!"
+msgstr "Author deleted!"
 
 msgid "Author not added!"
-msgstr "Author non ajouté!"
+msgstr "Author not added!"
 
 msgid "Author not edited!"
-msgstr "Author non édité!"
+msgstr "Author not edited!"
 
 msgid "Author not deleted!"
-msgstr "Author non supprimé!"
+msgstr "Author not deleted!"
 
 msgid "Author not Published!"
-msgstr "Author non publié!"
+msgstr "Author not published!"

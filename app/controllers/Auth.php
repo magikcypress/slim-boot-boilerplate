@@ -12,7 +12,7 @@ $app->get("/logout", $authCheck, function () use ($app) {
 	// $app->view()->setData('PHP_AUTH_PW', null);
 	session_unset();
     session_destroy();
-   	$app->flash('ok', 'Logout');
+   	$app->flash('ok', _('Logout'));
    	$app->redirect('/');
 });
 

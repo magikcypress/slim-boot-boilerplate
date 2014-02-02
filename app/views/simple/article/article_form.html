@@ -1,35 +1,35 @@
 <form action="{{ action_url }}" method="post">
-	<h1>{{ action_name }} Article</h1>
+	<h1>{{ action_name }} {% trans %}Article{% endtrans %}</h1>
 	
 	<p>
-		<label for="title">Title: </label><br />
+		<label for="title">{% trans %}Title: {% endtrans %}</label><br />
 		<input type="text" name="title" value="{{ article.title|default('') }}" id="title" />
 	</p>
 	
 	<p>
-		<label for="author">Author: </label>
+		<label for="author">{% trans %}Author {% endtrans %}</label>
 		<select name="author">
 			{% for author in authors %}
 				{% if author.statut %}
-				<option value="{{ author.id }}">{{ author.nom|default('') }}</option>
+				<option value="{{ author.id }}" {% if author.id==article.author_id %} selected='selected' {% endif %}>{{ author.nom|default('') }}</option>
 				{% endif %}
 			{% endfor %}
 		</select>
 	</p>
 	
 	<p>
-		<label for="summary">Summary: </label><br />
+		<label for="summary">{% trans %}Summary: {% endtrans %}</label><br />
 		<textarea name="summary" id="summary" class="editable summary">{{ article.summary|default('') }}</textarea>
 	</p>	
 	
 	<p>
-		<label for="content">Content: </label><br />
+		<label for="content">{% trans %}Content: {% endtrans %}</label><br />
 		<textarea name="content" id="content" class="editable">{{ article.content|default('') }}</textarea>
 	</p>
 	
 	<p>
 		<input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token|raw }}">
-		<input type="submit" value="{{ action_name }} Article" />
+		<input type="submit" value="{{ action_name }}" />
 	</p>
 </form>
 

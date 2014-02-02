@@ -1,8 +1,8 @@
 {% extends 'layout.html' %}
 
-{% block page_title %}My Blog{% endblock %}
+{% block page_title %}{% trans %}Contact{% endtrans %}{% endblock %}
 
 {% block content %}	
-	<h1>Contact</h1>
+	<h1>{% trans %}Contact{% endtrans %}</h1>
 	{% include 'contact/contact_form.html' %}
 {% endblock %}

@@ -43,6 +43,9 @@ if (is_writable(ROOT_PATH . 'cache')) {
         'Twig_Extensions_Extension_I18n'
 );
 
+$locality = $site_cfg['website']['i18n']; // locality should be determined here
+require_once (APP_PATH . 'config/locales.php'); 
+
 // Setup $app
 $app = new \Slim\Slim( array(
 	'templates.path' => APP_PATH . 'views/' . $site_cfg['website']['theme'] . '/',

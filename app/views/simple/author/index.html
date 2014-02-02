@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 
-{% block page_title %}My Blog{% endblock %}
+{% block page_title %}{% trans %} Author {% endtrans %}{% endblock %}
 
 {% block content %}	
 	{% for author in authors %}
@@ -8,6 +8,6 @@
 			<h1><a href="/admin/viewauthor/{{ author.id }}">{{ author.nom }}</a> <small>{{ author.email }}</small></h1>
 		{% endif %}
 	{% else %}	
-		<p>There are currently no authors.</p>
+		<p>{% trans %}There are currently no authors.{% endtrans %}</p>
 	{% endfor %}
 {% endblock %}

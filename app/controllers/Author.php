@@ -26,7 +26,7 @@ $app->get('/admin/authors', function() use ($app) {
 
 // Admin AddAuthor.
 $app->get('/admin/addauthor', $authCheck, function() use ($app) {
-	return $app->render('author/admin_author.html', array('action_name' => 'Add', 'action_url' => '/admin/addauthor'));
+	return $app->render('author/admin_author.html', array('action_name' => _('Add Author'), 'action_url' => '/admin/addauthor'));
 });	
 
 // Admin AddAuthor - POST.
@@ -39,9 +39,9 @@ $app->post('/admin/addauthor', $authCheck, function() use ($app) {
 		$author->pass 		= md5($app->request()->post('pass'));
 		$author->statut		= 0;
 		$author->save();
-		$app->flash('ok', 'Contact added!');
+		$app->flash('ok', _('Contact added!'));
 	} catch (Exception $e) {
-    	$app->flash('err', 'Contact not added! :: ' . $e->getMessage());
+    	$app->flash('err', _('Contact not added!') . ' :: ' . $e->getMessage());
 	}
 
 	$app->redirect('/admin');
@@ -55,7 +55,7 @@ $app->get('/admin/authoredit/(:id)', $authCheck, function($id) use ($app) {
 	}	
 	
 	return $app->render('author/admin_author.html', array(
-		'action_name' 	=> 	'Edit', 
+		'action_name' 	=> 	_('Edit'), 
 		'action_url' 	=> 	'/admin/authoredit/' . $id,
 		'author'		=> 	$author
 	));
@@ -66,7 +66,7 @@ $app->post('/admin/authoredit/(:id)', $authCheck, function($id) use ($app) {
 	$author = Model::factory('Author')->find_one($id);
 	if (! $author instanceof Author) {
 		$app->notFound();
-		$app->flash('err', 'Contact not edited!');
+		$app->flash('err', _('Author not edited!'));
 	}
 	
 	try {
@@ -77,11 +77,11 @@ $app->post('/admin/authoredit/(:id)', $authCheck, function($id) use ($app) {
 		$author->statut		= 0;
 		// $author->htpass		= crypt($app->request()->post('statut'));
 		$author->save();
+		$app->flash('ok', _('Author edited!'));
 	} catch (Exception $e) {
-    	$app->flash('err', 'Author not edited! :: ' . $e->getMessage());
+    	$app->flash('err', _('Author not edited!') . ' :: ' . $e->getMessage());
 	}
 
-	$app->flash('ok', 'Author edited!');
 	$app->redirect('/admin');
 });
 
@@ -92,16 +92,16 @@ $app->get('/admin/authorpublish/(:id)', $authCheck, function($id) use ($app) {
 
 	if (! $author instanceof Author) {
 		$app->notFound();
-		$app->flash('err', 'Author not published!');
+		$app->flash('err', _('Author not published!'));
 	}	
 	
 	$author->statut = $author->statut == 1 ? 0 : 1;
 	$author->save();
 
 	if($author->statut) {
-		$app->flash('ok', 'Author public!');
+		$app->flash('ok', _('Author public!'));
 	} else {
-		$app->flash('ok', 'Author private!');
+		$app->flash('ok', _('Author private!'));
 	} 
 
 	$app->redirect('/admin');
@@ -112,10 +112,10 @@ $app->get('/admin/authordelete/(:id)', $authCheck, function($id) use ($app) {
 	$author = Model::factory('Author')->find_one($id);
 	if ($author instanceof Author) {
 		$author->delete();
-		$app->flash('ok', 'Contact deleted!');
+		$app->flash('ok', _('Author deleted!'));
 	}
 	
-    $app->flash('err', 'Contact not deleted!');
+    $app->flash('err', _('Author not deleted!'));
 	$app->redirect('/admin');
 });
 

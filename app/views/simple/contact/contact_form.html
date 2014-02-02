@@ -1,17 +1,17 @@
 <form action="{{ action_url }}" method="post">
 	
 	<p>
-		<label for="email">Email: </label>
+		<label for="email">{% trans %}Email:{% endtrans %} </label>
 		<input type="text" name="email" value="" id="email" />
 	</p>
 
 	<p>
-		<label for="subject">Subject: </label>
+		<label for="subject">{% trans %}Subject:{% endtrans %} </label>
 		<input type="text" name="subject" value="" id="subject" />
 	</p>
 	
 	<p>
-		<label for="message">Message: </label>
+		<label for="message">{% trans %}Message:{% endtrans %} </label>
 		<textarea name="message" id="message" class="editable"></textarea>
 	</p>
 	

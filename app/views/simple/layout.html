@@ -14,13 +14,13 @@
 	<body>
 		<div class="container">
 			<ul class="menu">
-				<li><a href="/admin/">Return Admin</a></li>
-				<li><a href="/admin/add">Add Article</a></li>
-				<li><a href="/admin/addauthor">Add Author</a></li>
-				<li><a href="/contact">Contact</a></li>
-				<li><a href="/about">About</a></li>
-				<li><a href="/">View Website</a></li>
-				<li><a href="/logout">Logout</a></li>
+				<li><a href="/admin/">{% trans %}Return Admin{% endtrans %}</a></li>
+				<li><a href="/admin/add">{% trans %}Add Article{% endtrans %}</a></li>
+				<li><a href="/admin/addauthor">{% trans %}Add Author{% endtrans %}</a></li>
+				<li><a href="/contact">{% trans %}Contact{% endtrans %}</a></li>
+				<li><a href="/about">{% trans %}About{% endtrans %}</a></li>
+				<li><a href="/">{% trans %}View Website{% endtrans %}</a></li>
+				<li><a href="/logout">{% trans %}Logout{% endtrans %}</a></li>
 			</ul>
 
 			{% if flash.ok %}

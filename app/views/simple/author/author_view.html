@@ -14,10 +14,10 @@
 				</li>
 			{% endfor %}
 		{% else %}	
-			<li>There are currently no article.</li>
+			<li>{% trans %}There are currently no articles. {% endtrans %}</li>
 		{% endif %}	
 	</ul>
 {% else %}	
-	<p>There are currently no author.</p>
+	<p>{% trans %}There are currently no author.{% endtrans %}</p>
 {% endif %}	
 {% endblock %}
