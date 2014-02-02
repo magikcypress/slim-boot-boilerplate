@@ -17,6 +17,7 @@ ul.menu li a { color: #fff; }
 th { text-align: left; width: 20% }
 .legend { text-align: right; }
 label { font-weight: bold; }
+.btn-flash { margin-left: .4em; }
 
 /* line 19, ../../../../../home/pastorbones/.rvm/gems/ruby-1.9.3-p327@rails3tutorial2ndEd/gems/bootstrap-sass-2.2.2.0/vendor/assets/stylesheets/bootstrap/_reset.scss */
 article,

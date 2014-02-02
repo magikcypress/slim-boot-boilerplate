@@ -6,3 +6,4 @@ ul.menu li { background-color: #0088cc; padding: .5em }
 ul.menu li a { color: #fff; }
 th { text-align: left; width: 20% }
 .legend { text-align: right; margin-top: 1em; }
+.btn-flash { margin-left: .4em; }

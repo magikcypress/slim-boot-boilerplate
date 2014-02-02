@@ -83,6 +83,7 @@ class SlimBasicAuth extends \Slim\Middleware
         if(strpos($this->app->request()->getPathInfo(), $this->route) !== false) {
             $req = $this->app->request();
             $res = $this->app->response();
+
             $authUser = $req->headers('PHP_AUTH_USER');
             $authPass = $req->headers('PHP_AUTH_PW');
 

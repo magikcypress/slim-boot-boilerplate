@@ -38,22 +38,41 @@ ORM::configure('password', '');
 if (is_writable(ROOT_PATH . 'cache')) {
 	\Slim\Extras\Views\Twig::$twigOptions['cache'] = ROOT_PATH . 'cache';
 }
+\Slim\Extras\Views\Twig::$twigExtensions =  array(
+        'Twig_Extensions_Extension_I18n' // Added i18n //
+);
 
 // Setup $app
 $app = new \Slim\Slim( array(
-	'templates.path' => APP_PATH . 'views/' . $site_cfg['website']['theme'] . '/', 
+	'templates.path' => APP_PATH . 'views/' . $site_cfg['website']['theme'] . '/',
+	'locales.path' => APP_PATH . 'i18n/', 
 	'debug' => true, 
-	'view' => new \Slim\Extras\Views\Twig(), 
-	'cookies.secret_key' => md5($site_cfg['website']['secret']), 
-	'log.enabled' => false,
-	// After instantiation
-	'cookies.domain' => 'slimblog', 
+	'view' => new \Slim\Extras\Views\Twig(),
+	// 'cookies.domain' => 'slim', 
+	// 'cookies.name' => 'slimblog',
+	// 'cookies.secret_key' => md5($site_cfg['website']['secret']), 
+	// 'cookies.encrypt' => true,
+	// 'cookies.lifetime' => '40 minutes',
+	// 'cookies.path' => '/',
+	'log.enabled' => false, 
 	'log.writer' => new \Slim\Extras\Log\DateTimeFileWriter( array(
 		'path' => ROOT_PATH . 'logs', 
 		'name_format' => 'Y-m-d', 
 		'message_format' => '%label% - %date% - %message%'
 	))
 ));
+
+// Cookie
+$app->add(new \Slim\Middleware\SessionCookie(array(
+    'expires' => '40 minutes',
+    'path' => '/',
+    'domain' => 'slim',
+    'secure' => false,
+    'httponly' => false,
+    'encrypt' => false,
+    'name' => 'slimblog',
+    'secret' => md5($site_cfg['website']['secret'])
+)));
 
 // Authenticate
 $app->add(new \SlimBasicAuth('','admin'));

@@ -23,6 +23,11 @@
 				<li><a href="/logout">Logout</a></li>
 			</ul>
 
+			{% if flash.ok %}
+			<span class="alert alert-info">{{ flash.ok }}  <button class="btn-info btn-mini btn-flash">X</button></span>{% endif %}
+			{% if flash.err %}
+			<span class="alert alert-error">{{ flash.err }}  <button class="btn-inverse btn-mini btn-flash">X</button></span>{% endif %}
+
 			{% block content %} {% endblock %}
 		</div>
 
@@ -35,6 +40,16 @@
 					<li><a href="{{ LICENCE_URL }}">{{ LICENCE }}</a></li>
 				</ul>
 		</div>
+		<script src="/javascripts/jquery.min.js"></script>
+		<script>
+			// Close flash message
+			$(document).ready(function() {
+				$(".alert-info,.alert-error").fadeIn().delay(2000).fadeOut('slow'); 
+				$("button.btn-flash").bind('click', function(){
+					$('.alert').css('display', 'none');
+				});
+			});
+		</script>
 		{% if GOOGLE_UA_ID is defined %}
 		<script>
 			var _gaq = [['_setAccount', '{{ GOOGLE_UA_ID }}'], ['_trackPageview'], ['_trackPageLoadTime']];

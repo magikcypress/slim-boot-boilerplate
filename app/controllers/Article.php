@@ -54,6 +54,16 @@ $app->get('/view/(:id)', function($id) use ($app) {
 
 // Admin Home.
 $app->get('/admin/', $authCheck, function() use ($app) {
+	// Translation
+    // Set language to English
+    putenv('LC_ALL=fr_FR');
+    setlocale(LC_ALL, 'fr_FR');
+    // Specify the location of the translation tables
+    bindtextdomain('default', APP_PATH . 'i18n');
+    bind_textdomain_codeset('default', 'UTF-8');
+    // Choose domain
+    textdomain('default');
+
 	// Display articles
 	$art = Model::factory('Article')
 					->order_by_desc('timestamp')
@@ -88,16 +98,21 @@ $app->get('/admin/add', $authCheck, function() use ($app) {
 
 // Admin Add - POST.
 $app->post('/admin/add', $authCheck, function() use ($app) {
-	$article 			= Model::factory('Article')->create();
-	// $article->id 		= 1; Because sqlite
-	// $article->publish	= 1; Because sqlite
-	$article->title 	= $app->request()->post('title');
-	$article->author_id	= $app->request()->post('author');
-	$article->summary 	= $app->request()->post('summary');
-	$article->content 	= $app->request()->post('content');
-	$article->timestamp = date('Y-m-d H:i:s');
-	$article->save();
-	
+	try {
+		$article 			= Model::factory('Article')->create();
+		// $article->id 		= 1; Because sqlite
+		// $article->publish	= 1; Because sqlite
+		$article->title 	= $app->request()->post('title');
+		$article->author_id	= $app->request()->post('author');
+		$article->summary 	= $app->request()->post('summary');
+		$article->content 	= $app->request()->post('content');
+		$article->timestamp = date('Y-m-d H:i:s');
+		$article->save();
+		$app->flash('ok', 'Article added!');
+	} catch (Exception $e) {
+    	$app->flash('err', 'Article not added! :: ' . $e->getMessage());
+	}
+
 	$app->redirect('/admin');
 });
 
@@ -125,13 +140,18 @@ $app->post('/admin/edit/(:id)', $authCheck, function($id) use ($app) {
 		$app->notFound();
 	}
 	
-	$article->title 	= $app->request()->post('title');
-	$article->author_id	= $app->request()->post('author');
-	$article->summary 	= $app->request()->post('summary');
-	$article->content 	= $app->request()->post('content');	
-	$article->timestamp = date('Y-m-d H:i:s');
-	$article->save();
-	
+	try {
+		$article->title 	= $app->request()->post('title');
+		$article->author_id	= $app->request()->post('author');
+		$article->summary 	= $app->request()->post('summary');
+		$article->content 	= $app->request()->post('content');	
+		$article->timestamp = date('Y-m-d H:i:s');
+		$article->save();
+		$app->flash('ok', 'Article edited!');
+	} catch (Exception $e) {
+    	$app->flash('err', 'Article not edited! :: ' . $e->getMessage());
+	}
+
 	$app->redirect('/admin');
 });
 
@@ -141,10 +161,17 @@ $app->get('/admin/publish/(:id)', $authCheck, function($id) use ($app) {
 
 	if (! $article instanceof Article) {
 		$app->notFound();
+		$app->flash('err', 'Article not published!');
 	}	
 	
 	$article->publish = $article->publish == 1 ? 0 : 1;
 	$article->save();
+
+	if($article->publish) {
+		$app->flash('ok', 'Article public!');
+	} else {
+		$app->flash('ok', 'Article private!');
+	} 
 
 	$app->redirect('/admin');
 });
@@ -154,8 +181,10 @@ $app->get('/admin/delete/(:id)', $authCheck, function($id) use ($app) {
 	$article = Model::factory('Article')->find_one($id);
 	if ($article instanceof Article) {
 		$article->delete();
+		$app->flash('err', 'Article not deleted!');
 	}
 	
+	$app->flash('ok', 'Article deleted!');
 	$app->redirect('/admin');
 });
 

@@ -19,6 +19,11 @@
 				</div>
 			</header>
 			<div class="container">
+				{% if flash.ok %}
+				<span class="alert alert-info">{{ flash.ok }} <button title="close" class="btn-info btn-mini btn-flash">X</button></span>{% endif %}
+				{% if flash.err %}
+				<span class="alert alert-error">{{ flash.err }} <button title="close" class="btn-inverse btn-mini btn-flash">X</button></span>{% endif %}
+
 				{% block content %}{% endblock %}
 			</div>
 			<footer class="container">
@@ -27,11 +32,19 @@
 				</div>
 			</footer>
 		</div>
-		<!-- JavaScript at the bottom for fast page loading -->
-
-		<!--script src="/javascripts/jquery.min.js"></script-->
+		
+		<script src="/javascripts/jquery.min.js"></script>
 		<!--script src="/javascripts/bootstrap.min.js"></script-->
-		<!--script src="/javascripts/script.js"></script-->
+
+		<script>
+			// Close flash message
+			$(document).ready(function() {
+				$(".alert-info,.alert-error").fadeIn().delay(2000).fadeOut('slow'); 
+				$("button.btn-flash").bind('click', function(){
+					$('.alert').css('display', 'none');
+				});
+			});
+		</script>
 		
 		{% if GOOGLE_UA_ID is defined %}
 		<script>

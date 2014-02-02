@@ -31,14 +31,19 @@ $app->get('/admin/addauthor', $authCheck, function() use ($app) {
 
 // Admin AddAuthor - POST.
 $app->post('/admin/addauthor', $authCheck, function() use ($app) {
-	$author 			= Model::factory('Author')->create();
-	$author->nom 		= $app->request()->post('nom');
-	$author->email 		= $app->request()->post('email');
-	$author->login 		= $app->request()->post('login');
-	$author->pass 		= md5($app->request()->post('pass'));
-	$author->statut		= 0;
-	$author->save();
-	
+	try {
+		$author 			= Model::factory('Author')->create();
+		$author->nom 		= $app->request()->post('nom');
+		$author->email 		= $app->request()->post('email');
+		$author->login 		= $app->request()->post('login');
+		$author->pass 		= md5($app->request()->post('pass'));
+		$author->statut		= 0;
+		$author->save();
+		$app->flash('ok', 'Contact added!');
+	} catch (Exception $e) {
+    	$app->flash('err', 'Contact not added! :: ' . $e->getMessage());
+	}
+
 	$app->redirect('/admin');
 });
 
@@ -61,16 +66,22 @@ $app->post('/admin/authoredit/(:id)', $authCheck, function($id) use ($app) {
 	$author = Model::factory('Author')->find_one($id);
 	if (! $author instanceof Author) {
 		$app->notFound();
+		$app->flash('err', 'Contact not edited!');
 	}
 	
-	$author->nom 		= $app->request()->post('nom');
-	$author->email 		= $app->request()->post('email');
-	$author->login 		= $app->request()->post('login');
-	$author->pass 		= $app->request()->post('pass');
-	$author->statut		= 0;
-	// $author->htpass		= crypt($app->request()->post('statut'));
-	$author->save();
-	
+	try {
+		$author->nom 		= $app->request()->post('nom');
+		$author->email 		= $app->request()->post('email');
+		$author->login 		= $app->request()->post('login');
+		$author->pass 		= $app->request()->post('pass');
+		$author->statut		= 0;
+		// $author->htpass		= crypt($app->request()->post('statut'));
+		$author->save();
+	} catch (Exception $e) {
+    	$app->flash('err', 'Contact not edited! :: ' . $e->getMessage());
+	}
+
+	$app->flash('ok', 'Contact edited!');
 	$app->redirect('/admin');
 });
 
@@ -81,8 +92,10 @@ $app->get('/admin/authorpublish/(:id)', $authCheck, function($id) use ($app) {
 
 	if (! $author instanceof Author) {
 		$app->notFound();
+		$app->flash('err', 'Contact not published!');
 	}	
 	
+	$app->flash('ok', 'Contact published!');
 	$author->statut = $author->statut == 1 ? 0 : 1;
 	$author->save();
 
@@ -94,8 +107,10 @@ $app->get('/admin/authordelete/(:id)', $authCheck, function($id) use ($app) {
 	$author = Model::factory('Author')->find_one($id);
 	if ($author instanceof Author) {
 		$author->delete();
+		$app->flash('ok', 'Contact deleted!');
 	}
 	
+    $app->flash('err', 'Contact not deleted!');
 	$app->redirect('/admin');
 });
 

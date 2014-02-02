@@ -1,21 +1,21 @@
 {% extends 'layout.html' %}
 
-{% block page_title %}My Blog Administration{% endblock %}
+{% block page_title %}{% trans %}My Blog Administration{% endtrans %}{% endblock %}
 
 {% block content %}	
 
 	<section id="article">
-	<h1>My Blog Administration</h1>
+	<h1>{% trans %}My Blog Administration{% endtrans %}</h1>
 
 	{% if articles %}
 		<table>
 			<thead>
 				<tr>
-					<th style="width: 50%">Title</th>
-					<th style="width: 20%">Author</th>
-					<th>Date</th>
+					<th style="width: 50%">{% trans %}Title{% endtrans %}</th>
+					<th style="width: 20%">{% trans %}Author{% endtrans %}</th>
+					<th>{% trans %}Date{% endtrans %}</th>
 					<th></th>
-					<th colspan="3">Actions</th>
+					<th colspan="3">{% trans %}Actions{% endtrans %}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -26,46 +26,46 @@
 						<td>{{ article.timestamp|date('jS F Y') }}</td>
 						<td class="center">
 							{% if article.publish %}
-								<img src="/images/publish.png" alt="Article public">
+								<img src="/images/publish.png" alt="{% trans %}Article public{% endtrans %}">
 							{% else %}
-								<img src="/images/notpublish.png" alt="Article private">
+								<img src="/images/notpublish.png" alt="{% trans %}Article private{% endtrans %}">
 							{% endif %}
 
 						</td>
-						<td><a href="/admin/publish/{{ article.id }}">Publish</a></td>
-						<td><a href="/admin/edit/{{ article.id }}">Edit</a></td>
-						<td><a href="/admin/delete/{{ article.id }}">Delete</a></td>
+						<td><a href="/admin/publish/{{ article.id }}">{% trans %}Publish{% endtrans %}</a></td>
+						<td><a href="/admin/edit/{{ article.id }}">{% trans %}Edit{% endtrans %}</a></td>
+						<td><a href="/admin/delete/{{ article.id }}">{% trans %}Delete{% endtrans %}</a></td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 
 		<ul class="legend">
-			<li><strong>Legend</strong></li>
-			<li><img src="/images/publish.png" alt="Legend Public"> Public</li>
-			<li><img src="/images/notpublish.png" alt="Legend private"> Private</li>
+			<li><strong>{% trans %}Legend{% endtrans %}</strong></li>
+			<li><img src="/images/publish.png" alt="{% trans %}Legend Public{% endtrans %}"> {% trans %}Public{% endtrans %}</li>
+			<li><img src="/images/notpublish.png" alt="{% trans %}Legend private{% endtrans %}"> {% trans %}Private{% endtrans %}</li>
 		</ul>
 
 
 	{% else %}
-		<p>There are currently no articles.</p>
+		<p>{% trans %}There are currently no articles.{% endtrans %}</p>
 	{% endif %}
 
 	</section>
 
 	<section id="author">
 
-		<h1>My Authors Administration</h1>
+		<h1>{% trans %}My Authors Administration{% endtrans %}</h1>
 
 		{% if authors %}
 			<table>
 				<thead>
 					<tr>
-						<th style="width: 50%">Nom</th>
-						<th style="width: 20%">Email</th>
-						<th>Login</th>
+						<th style="width: 50%">{% trans %}Nom{% endtrans %}</th>
+						<th style="width: 20%">{% trans %}Email{% endtrans %}</th>
+						<th>{% trans %}Login{% endtrans %}</th>
 						<th></th>
-						<th colspan="3">Actions</th>
+						<th colspan="3">{% trans %}Actions{% endtrans %}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -76,29 +76,29 @@
 							<td>{{ author.login }}</td>
 							<td class="center">
 								{% if author.statut %}
-									<img src="/images/publish.png" alt="Author public">
+									<img src="/images/publish.png" alt="{% trans %}Author public{% endtrans %}">
 								{% else %}
-									<img src="/images/notpublish.png" alt="Author private">
+									<img src="/images/notpublish.png" alt="{% trans %}Author private{% endtrans %}">
 								{% endif %}
 
 							</td>
-							<td><a href="/admin/authorpublish/{{ author.id }}">Statut</a></td>
-							<td><a href="/admin/authoredit/{{ author.id }}">Edit</a></td>
-							<td><a href="/admin/authordelete/{{ author.id }}">Delete</a></td>
+							<td><a href="/admin/authorpublish/{{ author.id }}">{% trans %}Statut{% endtrans %}</a></td>
+							<td><a href="/admin/authoredit/{{ author.id }}">{% trans %}Edit{% endtrans %}</a></td>
+							<td><a href="/admin/authordelete/{{ author.id }}">{% trans %}Delete{% endtrans %}</a></td>
 						</tr>
 					{% endfor %}
 				</tbody>
 			</table>
 
 			<ul class="legend">
-				<li><strong>Legend</strong></li>
-				<li><img src="/images/publish.png" alt="Legend Public"> Public</li>
-				<li><img src="/images/notpublish.png" alt="Legend private"> Private</li>
+				<li><strong>{% trans %}Legend{% endtrans %}</strong></li>
+				<li><img src="/images/publish.png" alt="{% trans %}Legend Public{% endtrans %}"> {% trans %}Public{% endtrans %}</li>
+				<li><img src="/images/notpublish.png" alt="{% trans %}Legend private{% endtrans %}"> {% trans %}Private{% endtrans %}</li>
 			</ul>
 
 
 		{% else %}
-			<p>There are currently no authors.</p>
+			<p>{% trans %}There are currently no authors.{% endtrans %}</p>
 		{% endif %}
 	</section>
 
